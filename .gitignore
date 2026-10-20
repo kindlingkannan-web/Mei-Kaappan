@@ -26,3 +26,12 @@
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Java & Maven
+backend/server/target/
+*.class
+
+# Local Runtime Binaries & Databases
+backend/pgsql/
+backend/apache-maven-*/
+*.log
