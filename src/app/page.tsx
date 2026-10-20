@@ -94,7 +94,7 @@ export default function OverviewDashboard() {
     <div className="space-y-6">
       {/* Top Banner / Hero */}
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-navy-900 via-navy-800 to-slate-900 border border-slate-800 p-6 sm:p-8 shadow-xl">
-        <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold">
               <Activity className="w-3.5 h-3.5 animate-pulse" />
@@ -110,27 +110,27 @@ export default function OverviewDashboard() {
           </div>
 
           {/* Quick Action Buttons */}
-          <div className="flex flex-wrap sm:flex-nowrap gap-3 w-full md:w-auto">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 w-full lg:w-auto shrink-0">
             <Link
               href="/scanner"
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-xs transition-all shadow-lg shadow-cyan-950/40 hover:shadow-cyan-900/60"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-xs transition-all shadow-lg shadow-cyan-950/40 hover:shadow-cyan-900/60 whitespace-nowrap shrink-0"
             >
               <ScanSearch className="w-4 h-4" />
-              Scan Message
+              <span>Scan Message</span>
             </Link>
             <Link
               href="/payment-check"
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all shadow-lg shadow-emerald-950/40"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all shadow-lg shadow-emerald-950/40 whitespace-nowrap shrink-0"
             >
               <CreditCard className="w-4 h-4" />
-              Check Payment
+              <span>Check Payment</span>
             </Link>
             <Link
               href="/incidents"
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs border border-slate-700 transition-all"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs border border-slate-700 transition-all whitespace-nowrap shrink-0"
             >
               <GitMerge className="w-4 h-4 text-cyan-400" />
-              View Journeys
+              <span>View Journeys</span>
             </Link>
           </div>
         </div>
@@ -350,11 +350,11 @@ export default function OverviewDashboard() {
             filteredIncidents.map((incident) => (
               <div
                 key={incident.id}
-                className="p-5 hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+                className="p-5 hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
               >
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 flex-1 min-w-0">
                   <RiskScoreGauge score={incident.currentRiskScore} severity={incident.severity} size="sm" />
-                  <div className="space-y-1">
+                  <div className="space-y-1 flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
                       <SeverityBadge severity={incident.severity} size="sm" />
                       <span className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400">
@@ -368,13 +368,13 @@ export default function OverviewDashboard() {
                       </span>
                     </div>
 
-                    <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">
+                    <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 truncate">
                       {incident.title}
                     </h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1 max-w-2xl">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 sm:line-clamp-1">
                       {incident.summary}
                     </p>
-                    <div className="text-[11px] text-slate-400 flex items-center gap-2">
+                    <div className="text-[11px] text-slate-400 flex items-center gap-2 flex-wrap">
                       <span className="font-semibold text-cyan-600 dark:text-cyan-400">
                         Vector: {incident.primaryAttackerVector}
                       </span>
@@ -384,10 +384,10 @@ export default function OverviewDashboard() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 self-end md:self-center">
+                <div className="flex items-center gap-3 shrink-0 self-start sm:self-center">
                   <Link
                     href={`/incidents/${incident.id}`}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/10 hover:text-cyan-400 text-slate-700 dark:text-slate-200 text-xs font-semibold border border-slate-200 dark:border-slate-700 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500/10 hover:text-cyan-600 dark:hover:text-cyan-400 text-slate-700 dark:text-slate-200 text-xs font-semibold border border-slate-200 dark:border-slate-700 transition-colors whitespace-nowrap shrink-0 shadow-sm"
                   >
                     <span>View Scam Journey</span>
                     <ArrowRight className="w-3.5 h-3.5" />

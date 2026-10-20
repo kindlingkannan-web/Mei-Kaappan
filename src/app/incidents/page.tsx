@@ -185,10 +185,10 @@ export default function IncidentsListPage() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 self-end md:self-center">
+              <div className="flex items-center gap-3 shrink-0 self-start sm:self-center">
                 <Link
                   href={`/incidents/${incident.id}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white dark:bg-cyan-600 dark:hover:bg-cyan-500 text-xs font-semibold transition-all shadow-md"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white dark:bg-cyan-600 dark:hover:bg-cyan-500 text-xs font-semibold transition-all shadow-md whitespace-nowrap shrink-0"
                 >
                   <span>Explore Scam Journey</span>
                   <ArrowRight className="w-3.5 h-3.5" />
